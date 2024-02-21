@@ -4,6 +4,10 @@ import java.util.Properties;
 
 public class AppConfig {
     public static void main(String[] args) {
+        printDatabaseInfo();
+    }
+
+    static void printDatabaseInfo() {
         Properties prop = new Properties();
 
         try (InputStream input = AppConfig.class.getClassLoader().getResourceAsStream("config.properties")) {
