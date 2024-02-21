@@ -1,10 +1,13 @@
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 public class AppConfig {
     public static void main(String[] args) {
         printDatabaseInfo();
+        printGreeting();
     }
 
     static void printDatabaseInfo() {
@@ -22,5 +25,12 @@ public class AppConfig {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    static void printGreeting() {
+        ResourceBundle greetingResourceJa = ResourceBundle.getBundle("greeting", Locale.JAPANESE);
+        System.out.println(greetingResourceJa.getString("hello"));
+        ResourceBundle greetingResourceEn = ResourceBundle.getBundle("greeting", Locale.ENGLISH);
+        System.out.println(greetingResourceEn.getString("hello"));
     }
 }
